@@ -1,0 +1,86 @@
+# ----------------------------
+# GLOBAL IGNORE
+# ----------------------------
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+
+# ----------------------------
+# NODE / BACKEND
+# ----------------------------
+/backend/node_modules/
+backend/package-lock.json
+backend/.env
+backend/dist/
+backend/coverage/
+backend/.DS_Store
+
+# nodemon, pm2, debug files
+backend/.nodemon.json
+backend/pids/
+backend/logs/
+
+# ----------------------------
+# ANGULAR / FRONTEND
+# ----------------------------
+/frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.env
+frontend/.DS_Store
+
+# Angular build output
+frontend/out-tsc/
+frontend/coverage/
+
+# VSCode config (optional)
+frontend/.vscode/
+
+# ----------------------------
+# COMMON FILES (MONOREPO)
+# ----------------------------
+.env
+.env.local
+*.local
+*.env.*
+
+# OS-specific
+*.bak
+*.orig
+*.rej
+*.tmp
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# npm debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docker
+docker-compose.override.yml
+*.pid
+
+# ----------------------------
+# Optional: compiled or generated
+# ----------------------------
+*.class
+*.pyc
+*.so
+*.exe
+*.out
+*.app
+*.dll
+
+# ----------------------------
+# Tests
+# ----------------------------
+/coverage/
+.jest/
+test-results/
