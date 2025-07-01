@@ -1,0 +1,22 @@
+{
+  "name": "codeJudge",
+  "version": "1.0.0",
+  "description": "CodeJudge is a web-based system for automatic evaluation of programming exercises. It executes user-submitted code in a secure Docker sandbox, analyzes output correctness, performance, and code quality, and provides instant feedback with scoring. Ideal for coding platforms, online courses, and technical assessments.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon backend/src/main/java/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
