@@ -11,8 +11,8 @@ Thumbs.db
 # ----------------------------
 # NODE / BACKEND
 # ----------------------------
-../node_modules/
-../package-lock.json
+node_modules/
+package-lock.json
 backend/.env
 backend/dist/
 backend/coverage/
