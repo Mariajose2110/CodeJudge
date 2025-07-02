@@ -1,31 +1,25 @@
 let authService = require('../service/auth.service');
-let nextResponse = require ('next/server')
 
-
-//--------------------------------Crear nuevo usuario-----------------------------------------------------------------------------------
-exports.signup = async (req, res) => {
-
-    let {email, password} = req.json();
-
-
-
+//--------------------------------Login Usuario-----------------------------------------------------------------------------------
+exports.loginUser = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    let { username, password } = req.body;
 
-    // Validación básica
-    if (!username || !email || !password) {
-      return res.status(400).json({ error: 'All fields are required' });
-    }
+    if (!username || !password)
+      return res.status(400).json({ error: 'Todos los campos son requeridos' });
 
-    // Llama al servicio para crear el usuario
-    const user = await userService.create({ username, email, password });
+    let { token, user } = await authService.login({ username, password });
 
-    // Retorna el usuario sin la contraseña
-    const { password: _, ...safeUser } = user.toObject();
-    res.status(201).json(safeUser);
-
+    res.status(200).json({
+      message: 'Login exitoso',
+      token,
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email
+      }
+    });
   } catch (err) {
-  console.log(err)
-    res.status(500).json({ error: err.message });
+    res.status(401).json({ error: err.message });
   }
 };
