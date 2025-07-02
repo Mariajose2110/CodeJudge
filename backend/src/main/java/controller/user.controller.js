@@ -6,7 +6,7 @@ let userService = require('../service/user.service');
 exports.createUser = async (req, res) => {
 
   try {
-    const { username, email, password } = req.body;
+    let { username, email, password } = req.body;
 
     // Validación básica
     if (!username || !email || !password) {
@@ -14,10 +14,10 @@ exports.createUser = async (req, res) => {
     }
 
     // Llama al servicio para crear el usuario
-    const user = await userService.create({ username, email, password });
+    let user = await userService.create({ username, email, password });
 
     // Retorna el usuario sin la contraseña
-    const { password: _, ...safeUser } = user.toObject();
+    let { password: _, ...safeUser } = user.toObject();
     res.status(201).json(safeUser);
 
   } catch (err) {
@@ -65,7 +65,7 @@ exports.getUserById = async (req, res) => {
 exports.updateUser = async (req, res) => {
   try {
      let { id } = req.params;
-     const { username, email, password } = req.body;
+     let { username, email, password } = req.body;
 
     // Validación básica
     if (!id) {
@@ -80,7 +80,7 @@ exports.updateUser = async (req, res) => {
     }
 
     // Quitar la contraseña de la respuesta
-    const { password: _, ...safeUser } = updatedUser.toObject();
+    let { password: _, ...safeUser } = updatedUser.toObject();
     res.status(200).json(safeUser);
 
   } catch (err) {
